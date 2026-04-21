@@ -23,14 +23,14 @@ const INITIAL_CARDS: Card[] = [
   { id: 17, topic: 'Mindset & Growth', topicIndex: 3, cardIndex: 0, question: 'Burnout is inevitable in tech', completed: false },
   { id: 18, topic: 'Mindset & Growth', topicIndex: 3, cardIndex: 1, question: 'Imposter syndrome never really goes away', completed: false },
   { id: 19, topic: 'Mindset & Growth', topicIndex: 3, cardIndex: 2, question: 'Luck plays a bigger role in success than people admit', completed: false },
-  { id: 20, topic: 'Mindset & Growth', topicIndex: 3, cardIndex: 3, question: 'Working 9–5 limits your growth early in your career', completed: false },
-  { id: 21, topic: 'Mindset & Growth', topicIndex: 3, cardIndex: 4, question: 'You should focus on one niche instead of trying everything', completed: false },
-  { id: 22, topic: 'Mindset & Growth', topicIndex: 3, cardIndex: 5, question: "You're behind if you haven't started building by now", completed: false },
+  { id: 21, topic: 'Mindset & Growth', topicIndex: 3, cardIndex: 3, question: 'You should focus on one niche instead of trying everything', completed: false },
+  { id: 22, topic: 'Mindset & Growth', topicIndex: 3, cardIndex: 4, question: "You're behind if you haven't started building by now", completed: false },
   // Startups vs Big Tech
   { id: 23, topic: 'Startups vs Big Tech', topicIndex: 4, cardIndex: 0, question: 'Startups are only for people who can take huge risks', completed: false },
   { id: 24, topic: 'Startups vs Big Tech', topicIndex: 4, cardIndex: 1, question: 'AI is making it too easy to start startups — leading to oversaturation', completed: false },
   { id: 25, topic: 'Startups vs Big Tech', topicIndex: 4, cardIndex: 2, question: 'Startups are becoming more attractive than big tech in 2026', completed: false },
   { id: 26, topic: 'Startups vs Big Tech', topicIndex: 4, cardIndex: 3, question: "You don't need FAANG to be successful", completed: false },
+  { id: 20, topic: 'Startups vs Big Tech', topicIndex: 4, cardIndex: 4, question: 'Working 9–5 limits your growth early in your career', completed: false },
 ]
 
 function freshState(): GameState {
