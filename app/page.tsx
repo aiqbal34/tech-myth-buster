@@ -9,16 +9,22 @@ export default function HostPage() {
   const [state, setState] = useState<GameState | null>(null)
   const [audienceUrl, setAudienceUrl] = useState('')
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  // Monotonic counter — only the response with the highest seq updates state,
+  // preventing stale in-flight polls from overwriting newer results.
+  const fetchSeqRef = useRef(0)
 
   useEffect(() => {
     setAudienceUrl(`${window.location.origin}/audience`)
   }, [])
 
   const fetchState = useCallback(async () => {
+    const mySeq = ++fetchSeqRef.current
     try {
       const res = await fetch('/api/state', { cache: 'no-store' })
       const data: GameState = await res.json()
-      setState(data)
+      if (mySeq === fetchSeqRef.current) {
+        setState(data)
+      }
     } catch (e) {
       console.error('State fetch failed', e)
     }
@@ -33,6 +39,8 @@ export default function HostPage() {
   }, [fetchState])
 
   const sendAction = useCallback(async (body: object) => {
+    // Bump the seq so any concurrent interval polls are ignored after this point.
+    fetchSeqRef.current++
     await fetch('/api/action', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
